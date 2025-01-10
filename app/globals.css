@@ -5,50 +5,79 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 200 15% 8%;
+    
+    /* Primary Teal */
+    --primary: 180 100% 25%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary Colors */
+    --secondary: 180 40% 96%;
+    --secondary-foreground: 180 10% 15%;
+    
+    /* Accent Colors */
+    --accent: 84 54% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* CTA Colors */
+    --cta: 39 100% 50%;
+    --cta-foreground: 0 0% 0%;
+    
+    /* UI Elements */
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 200 15% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --popover-foreground: 200 15% 8%;
+    --muted: 180 10% 96%;
+    --muted-foreground: 180 5% 45%;
+    
+    /* System Colors */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --border: 180 20% 92%;
+    --input: 180 20% 92%;
+    --ring: 180 100% 25%;
     --radius: 0.5rem;
   }
  
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 200 50% 3%;
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
+    
+    /* Primary Teal Dark */
+    --primary: 180 100% 40%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary Colors Dark */
+    --secondary: 180 40% 12%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
+    
+    /* Accent Colors Dark */
+    --accent: 84 54% 45%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* CTA Colors Dark */
+    --cta: 39 100% 45%;
+    --cta-foreground: 0 0% 0%;
+    
+    /* UI Elements Dark */
+    --card: 200 50% 5%;
+    --card-foreground: 0 0% 98%;
+    --popover: 200 50% 5%;
+    --popover-foreground: 0 0% 98%;
+    --muted: 180 40% 12%;
+    --muted-foreground: 180 5% 65%;
+    
+    /* System Colors Dark */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 180 40% 12%;
+    --input: 180 40% 12%;
+    --ring: 180 100% 40%;
   }
 }
 
+/* Existing utilities */
 @layer utilities {
   .bg-grid-small-black {
     background-size: 40px 40px;
@@ -62,6 +91,15 @@
       linear-gradient(to bottom, rgb(255 255 255 / 0.1) 1px, transparent 1px);
   }
 
+  .gradient-primary {
+    @apply bg-gradient-to-r from-[hsl(180,100%,25%)] to-[hsl(190,100%,35%)];
+  }
+
+  .gradient-primary-dark {
+    @apply bg-gradient-to-r from-[hsl(180,100%,40%)] to-[hsl(190,100%,50%)];
+  }
+
+  /* Animation utilities */
   @keyframes float {
     0% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
@@ -91,15 +129,25 @@
     @apply bg-background text-foreground;
   }
   
-  /* Improved Typography */
+  /* Typography */
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight;
+    @apply tracking-tight font-bold;
   }
   
-  /* Container Improvements */
+  /* Container */
   .container {
     @apply px-4 mx-auto;
     max-width: 1400px;
+  }
+
+  /* Card Shadows */
+  .card-shadow {
+    @apply shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+  }
+  
+  /* Custom Gradients */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(190,100%,35%)];
   }
 }
 

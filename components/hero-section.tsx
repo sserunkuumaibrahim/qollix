@@ -25,14 +25,14 @@ export function HeroSection() {
             >
               <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl lg:leading-[1.2]">
                 Build Your Dream Tech Team
-                <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"> Globally</span>
+                <span className="gradient-text"> Globally</span>
               </h1>
               <p className="mt-6 text-lg text-muted-foreground sm:text-xl max-w-2xl mx-auto lg:mx-0">
                 Connect with world-class developers through AI-powered matching. Experience seamless collaboration and secure payments on our platform.
               </p>
               
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="text-base h-12">
+                <Button size="lg" variant="cta" className="text-base h-12">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -43,15 +43,15 @@ export function HeroSection() {
 
               <div className="mt-12 grid grid-cols-3 gap-8 text-center lg:text-left">
                 <div>
-                  <p className="text-3xl font-bold">50K+</p>
+                  <p className="text-3xl font-bold gradient-text">50K+</p>
                   <p className="mt-2 text-muted-foreground">Developers</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold">120+</p>
+                  <p className="text-3xl font-bold gradient-text">120+</p>
                   <p className="mt-2 text-muted-foreground">Countries</p>
                 </div>
                 <div>
-                  <p className="text-3xl font-bold">98%</p>
+                  <p className="text-3xl font-bold gradient-text">98%</p>
                   <p className="mt-2 text-muted-foreground">Success Rate</p>
                 </div>
               </div>
@@ -65,21 +65,23 @@ export function HeroSection() {
               className="relative lg:ml-auto"
             >
               <div className="relative mx-auto max-w-[500px]">
-                <Image
-                  src="/placeholder.svg?height=600&width=600"
-                  alt="Platform Preview"
-                  width={600}
-                  height={600}
-                  className="rounded-2xl shadow-2xl"
-                />
+                <div className="rounded-2xl overflow-hidden card-shadow">
+                  <Image
+                    src="/placeholder.svg?height=600&width=600"
+                    alt="Platform Preview"
+                    width={600}
+                    height={600}
+                    className="w-full h-auto"
+                  />
+                </div>
                 {/* Floating Elements */}
                 <div className="absolute -left-8 top-1/4 animate-float">
-                  <div className="rounded-lg bg-background p-4 shadow-lg">
+                  <div className="rounded-lg bg-card p-4 card-shadow border">
                     <Users className="h-6 w-6 text-primary" />
                   </div>
                 </div>
                 <div className="absolute -right-8 top-2/3 animate-float-delayed">
-                  <div className="rounded-lg bg-background p-4 shadow-lg">
+                  <div className="rounded-lg bg-card p-4 card-shadow border">
                     <Globe className="h-6 w-6 text-primary" />
                   </div>
                 </div>
