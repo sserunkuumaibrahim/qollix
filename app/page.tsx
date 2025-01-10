@@ -6,7 +6,7 @@ import { Statistics } from "@/components/statistics"
 import { Testimonials } from "@/components/testimonials"
 import { Pricing } from "@/components/pricing"
 import { Contact } from "@/components/contact"
-import { CTA } from "@/components/cta"
+import CTA from "@/components/cta"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
