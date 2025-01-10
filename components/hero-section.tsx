@@ -4,64 +4,91 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, Globe, Users, Zap } from 'lucide-react'
+import Image from "next/image"
 
 export function HeroSection() {
   return (
-    <div className="relative">
+    <section className="relative overflow-hidden">
+      {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-small-black/[0.2] bg-grid-small-white/[0.2] -z-10" />
-      <div className="container flex flex-col items-center justify-center min-h-[calc(100vh-4rem)] gap-4 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto flex max-w-[980px] flex-col items-center gap-4 text-center"
-        >
-          <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">
-            Connect with World-Class Tech Talent
-            <span className="text-primary">Instantly</span>
-          </h1>
-          <p className="max-w-[750px] text-lg text-muted-foreground sm:text-xl">
-            AI-powered matching, seamless collaboration, and secure payments. Build your dream team with Qollix.
-          </p>
-        </motion.div>
+      
+      {/* Main Content */}
+      <div className="container relative mx-auto px-4 py-20 lg:py-32">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+            {/* Left Column */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-center lg:text-left"
+            >
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl lg:leading-[1.2]">
+                Build Your Dream Tech Team
+                <span className="bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent"> Globally</span>
+              </h1>
+              <p className="mt-6 text-lg text-muted-foreground sm:text-xl max-w-2xl mx-auto lg:mx-0">
+                Connect with world-class developers through AI-powered matching. Experience seamless collaboration and secure payments on our platform.
+              </p>
+              
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button size="lg" className="text-base h-12">
+                  Get Started
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button size="lg" variant="outline" className="text-base h-12">
+                  View Demo
+                </Button>
+              </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-col gap-4 sm:flex-row"
-        >
-          <Button size="lg" asChild>
-            <Link href="/signup">
-              Get Started <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button size="lg" variant="outline" asChild>
-            <Link href="#how-it-works">Learn More</Link>
-          </Button>
-        </motion.div>
+              <div className="mt-12 grid grid-cols-3 gap-8 text-center lg:text-left">
+                <div>
+                  <p className="text-3xl font-bold">50K+</p>
+                  <p className="mt-2 text-muted-foreground">Developers</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-bold">120+</p>
+                  <p className="mt-2 text-muted-foreground">Countries</p>
+                </div>
+                <div>
+                  <p className="text-3xl font-bold">98%</p>
+                  <p className="mt-2 text-muted-foreground">Success Rate</p>
+                </div>
+              </div>
+            </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-8"
-        >
-          <div className="flex items-center gap-2">
-            <Globe className="h-6 w-6 text-primary" />
-            <span className="text-sm">Global Talent Pool</span>
+            {/* Right Column */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative lg:ml-auto"
+            >
+              <div className="relative mx-auto max-w-[500px]">
+                <Image
+                  src="/placeholder.svg?height=600&width=600"
+                  alt="Platform Preview"
+                  width={600}
+                  height={600}
+                  className="rounded-2xl shadow-2xl"
+                />
+                {/* Floating Elements */}
+                <div className="absolute -left-8 top-1/4 animate-float">
+                  <div className="rounded-lg bg-background p-4 shadow-lg">
+                    <Users className="h-6 w-6 text-primary" />
+                  </div>
+                </div>
+                <div className="absolute -right-8 top-2/3 animate-float-delayed">
+                  <div className="rounded-lg bg-background p-4 shadow-lg">
+                    <Globe className="h-6 w-6 text-primary" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
-          <div className="flex items-center gap-2">
-            <Zap className="h-6 w-6 text-primary" />
-            <span className="text-sm">AI-Powered Matching</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Users className="h-6 w-6 text-primary" />
-            <span className="text-sm">Verified Developers</span>
-          </div>
-        </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }
 
